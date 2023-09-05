@@ -9,4 +9,4 @@ if number > 0 and int(last_digit) > 5:
 elif int(last_digit) == 0:
     print(message + " and is 0")
 elif number < 0 or int(last_digit) < 6 and int(last_digit) == 0:
-    print(message + " and is less than 6 and not 0")
+    print(f"Last digit of {number:d} is -{last_digit} and is less than 6 and not 0")
