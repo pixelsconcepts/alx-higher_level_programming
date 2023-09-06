@@ -7,4 +7,3 @@ def uppercase(s):
             print("{}".format(chr(ch_upper)), end="")
         else:
             print("{}".format(ch), end="")
-    print("\n")
