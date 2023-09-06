@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-output = ""
-for i in range(ord('z'), ord('A') - 1, -1):
-    output += f"{chr(i)}"
-    if i % 2 == 0:
-        output += f"{chr(i - 32)}"
 
-print(output, end="")
+i = 0
+for ch in range(ord('z'), ord('a')- 1, -1):
+        print("{}".format(chr(ch - i)), end="")
+        i = 32 if i == 0 else 0
+
 
