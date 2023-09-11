@@ -2,7 +2,7 @@
 if __name__ == "__main__":
     import calculator_1 as calc
     import sys
-    
+
     if len(sys.argv) != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
@@ -10,7 +10,7 @@ if __name__ == "__main__":
     a = int(sys.argv[1])
     op = sys.argv[2]
     b = int(sys.argv[3])
-        
+
     if op == "+":
         result = calc.add(a, b)
     elif op == "-":
