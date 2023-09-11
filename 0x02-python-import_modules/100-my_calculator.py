@@ -18,10 +18,7 @@ if __name__ == "__main__":
     elif op == "*":
         result = calc.mul(a, b)
     elif op == "/":
-        if b == 0:
-            print("Error: Division by zero is not allowed.")
-            sys.exit(1)
-            result = calc.div(a, b)
+        result = calc.div(a, b)
     else:
         print("Unknown operator. Available operators: +, -, *, and /")
         sys.exit(1)
