@@ -1,28 +1,29 @@
 #include <Python.h>
-#include <stdio.h>
 
 /**
- * print_python_list_info - Function to check
- * @PyObject: Parameter 1
- * @p: Parameter 2
+ * print_python_list_info - Prints list info
+ * @p: PyObject 
  *
  * return: nothing
  */
 
 void print_python_list_info(PyObject *p)
 {
-	int size, i;
-	PyObject *item;
-	
-	size = PyList_Size(p);
-	
+	int size, alloc, i;
+	PyObject *obj;
+
+	size = Py_SIZE(p);
+	alloc = ((PyListObject *)p)->allocated;
+
 	printf("[*] Size of the Python List = %d\n", size);
-	printf("[*] Allocated = %d\n", (int)((PyListObject *)p)->allocated);
-	
+	printf("[*] Allocated = %d\n", alloc);
+
 	for (i = 0; i < size; i++)
 	{
-		item = PyList_GetItem(p, i);
-		printf("Element %d: %s\n", i, Py_TYPE(item)->tp_name);
+		printf("Element %d: ", i);
+
+		obj = PyList_GetItem(p, i);
+		printf("%s\n", Py_TYPE(obj)->tp_name);
 	}
 }
 
