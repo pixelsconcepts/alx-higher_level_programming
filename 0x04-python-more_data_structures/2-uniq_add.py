@@ -10,4 +10,3 @@ def uniq_add(my_list=[]):
             add_list += num
 
     return add_list
-
