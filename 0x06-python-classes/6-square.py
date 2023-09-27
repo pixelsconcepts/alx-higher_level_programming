@@ -55,6 +55,14 @@ class Square:
 
     @property
     def position(self):
+        """
+        Getter method for the position attribute.
+
+        Returns:
+            tuple: The position of the square as a tuple of two
+            positive integers.
+
+        """
         return self.__position
 
     @position.setter
