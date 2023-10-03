@@ -108,8 +108,10 @@ class Rectangle:
         Returns:
         str: A string representing the rectangle with '#' characters.
         """
-        if self.__width == 0 or self.__height == 0:
-            print("")
-        for i in range(self.height):
-            return ("#" * self.width + "\n").rstrip()
+        if self.width == 0 or self.height == 0:
+            return ""
 
+        rectangle_str = ""
+        for _ in range(self.height):
+            rectangle_str += '#' * self.width + '\n'
+        return rectangle_str.rstrip()
