@@ -6,8 +6,23 @@
 
 class Rectangle:
     """
-    A rectangle object
+    Defines a rectangle with width and height attributes.
+
+    Attributes:
+    - width (int): Width of the rectangle.
+    - height (int): Height of the rectangle.
     """
+    def __init__(self, width=0, height=0):
+        """
+        Initializes a new instance of the Rectangle class.
+
+        Parameters:
+        - width (int): The width of the rectangle.
+        - height (int): The height of the rectangle.
+        """
+        self.height = height
+        self.width = width
+
     @property
     def height(self):
         """
@@ -65,17 +80,6 @@ class Rectangle:
             raise ValueError("width must be >= 0")
 
         self.__width = value
-
-    def __init__(self, width=0, height=0):
-        """
-        Initializes a new instance of the Rectangle class.
-
-        Parameters:
-        - width (int): The width of the rectangle.
-        - height (int): The height of the rectangle.
-        """
-        self.height = height
-        self.width = width
 
     def area(self):
         """
