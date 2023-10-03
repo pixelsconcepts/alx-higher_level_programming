@@ -24,35 +24,6 @@ class Rectangle:
         self.width = width
 
     @property
-    def height(self):
-        """
-        Gets the height of the rectangle.
-
-        Returns:
-        int: The height of the rectangle.
-        """
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        """
-        Sets the height of the rectangle, raising errors for invalid values.
-
-        Parameters:
-        - value (int): The new height value.
-
-        Raises:
-        - TypeError: If the value is not an integer.
-        - ValueError: If the value is less than 0.
-        """
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value < 0:
-            raise ValueError("height must be >= 0")
-
-        self.__height = value
-
-    @property
     def width(self):
         """
         Gets the width of the rectangle.
@@ -81,6 +52,35 @@ class Rectangle:
 
         self.__width = value
 
+    @property
+    def height(self):
+        """
+        Gets the height of the rectangle.
+
+        Returns:
+        int: The height of the rectangle.
+        """
+        return self.__height
+
+    @height.setter
+    def height(self, value):
+        """
+        Sets the height of the rectangle, raising errors for invalid values.
+
+        Parameters:
+        - value (int): The new height value.
+
+        Raises:
+        - TypeError: If the value is not an integer.
+        - ValueError: If the value is less than 0.
+        """
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if value < 0:
+            raise ValueError("height must be >= 0")
+
+        self.__height = value
+
     def area(self):
         """
         Calculates and returns the area of the rectangle.
@@ -97,6 +97,7 @@ class Rectangle:
         Returns:
         float: The perimeter of the rectangle.
         """
-        if self.width == 0 and self.height == 0:
-            return 0
-        return 2 * (self.width + self.height)
+    if self.width == 0 and self.height == 0:
+        return 0
+    return 2 * (self.width + self.height)
+
