@@ -188,3 +188,20 @@ class Rectangle(Base):
         dw = self.__width
         eh = self.__height
         return "[Rectangle] ({}) {}/{} - {}/{}".format(aid, bx, cy, dw, eh)
+
+    def update(self, *args):
+        """
+        Update the attributes of the rectangle.
+
+        Args:
+            *args: Variable number of arguments.
+                1st argument should be the id attribute.
+                2nd argument should be the width attribute.
+                3rd argument should be the height attribute.
+                4th argument should be the x attribute.
+                5th argument should be the y attribute.
+        """
+        if args:
+            attrs = ["id", "width", "height", "x", "y"]
+            for attr, value in zip(attrs, args):
+                setattr(self, attr, value)
