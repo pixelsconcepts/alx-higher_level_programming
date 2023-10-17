@@ -189,7 +189,7 @@ class Rectangle(Base):
         eh = self.__height
         return "[Rectangle] ({}) {}/{} - {}/{}".format(aid, bx, cy, dw, eh)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Update the attributes of the rectangle.
 
@@ -200,8 +200,14 @@ class Rectangle(Base):
                 3rd argument should be the height attribute.
                 4th argument should be the x attribute.
                 5th argument should be the y attribute.
+                **kwargs: Variable number of keyword arguments.
+                Each key in this dictionary represents an attribute to
+                the instance.
         """
         if args:
             attrs = ["id", "width", "height", "x", "y"]
             for attr, value in zip(attrs, args):
                 setattr(self, attr, value)
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
