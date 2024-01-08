@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" display request id"""
 import urllib.request
 import sys
 
