@@ -1,27 +1,15 @@
 #!/usr/bin/python3
 """post email"""
-import urllib.request
-import urllib.parse
 import sys
+import urllib.parse
+import urllib.request
 
-# Check if the correct number of arguments is provided
-if len(sys.argv) != 3:
-    print("Usage: python script.py <URL> <email>")
-    sys.exit(1)
 
-url = sys.argv[1]
-email = sys.argv[2]
+if __name__ == "__main__":
+    url = sys.argv[1]
+    value = {"email": sys.argv[2]}
+    data = urllib.parse.urlencode(value).encode("ascii")
 
-try:
-    # Encode the email parameter
-    data = urllib.parse.urlencode({'email': email}).encode('utf-8')
-
-    # Send a POST request to the URL
-    with urllib.request.urlopen(url, data=data) as response:
-        # Decode and print the body of the response
-        body = response.read().decode('utf-8')
-        print("Response body:")
-        print(body)
-
-except urllib.error.URLError as e:
-    print(f"Error: {e.reason}")
+    request = urllib.request.Request(url, data)
+    with urllib.request.urlopen(request) as response:
+        print(response.read().decode("utf-8"))

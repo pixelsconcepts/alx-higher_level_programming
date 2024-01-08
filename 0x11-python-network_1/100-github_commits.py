@@ -1,34 +1,28 @@
 #!/usr/bin/python3
-"""list commits from repo"""
-import requests
+"""
+a Python script that takes 2 arguments in order to solve this challenge.
+
+The first argument will be the repository name
+The second argument will be the owner name
+You must use the packages requests and sys
+You are not allowed to import packages other than requests and sys
+You don’t need to check arguments passed to the script (number or type)
+"""
+
 import sys
+import requests
 
-def list_commits(repo_name, owner_name):
-    """ list all commits """
-    url = f"https://api.github.com/repos/{owner_name}/{repo_name}/commits"
-    params = {'per_page': 10}
-
-    try:
-        response = requests.get(url, params=params)
-        response.raise_for_status()
-
-        commits = response.json()
-
-        for commit in reversed(commits):
-            sha = commit['sha']
-            author_name = commit['commit']['author']['name']
-            print(f"{sha}: {author_name}")
-
-    except requests.exceptions.RequestException as e:
-        print(f"Error: {e}")
 
 if __name__ == "__main__":
-    """don't run if imported"""
-    if len(sys.argv) != 3:
-        print("Usage: python script.py <repository_name> <owner_name>")
-        sys.exit(1)
+    url = "https://api.github.com/repos/{}/{}/commits".format(
+        sys.argv[2], sys.argv[1])
 
-    repo_name = sys.argv[1]
-    owner_name = sys.argv[2]
-
-    list_commits(repo_name, owner_name)
+    r = requests.get(url)
+    commits = r.json()
+    try:
+        for i in range(10):
+            print("{}: {}".format(
+                commits[i].get("sha"),
+                commits[i].get("commit").get("author").get("name")))
+    except IndexError:
+        pass
