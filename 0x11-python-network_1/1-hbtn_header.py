@@ -2,11 +2,6 @@
 import urllib.request
 import sys
 
-# Check if a URL is provided as a command line argument
-if len(sys.argv) < 2:
-    print("Usage: python script.py <URL>")
-    sys.exit(1)
-
 url = sys.argv[1]
 
 # Send a request to the URL
